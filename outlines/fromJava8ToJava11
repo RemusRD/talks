@@ -1,0 +1,62 @@
+Functional Programming Patterns with Java8 by Victor Rentea
+Java 9 más allá de la modularidad - David Gómez
+2.2 Refactoring to (effective and modern) Java 11 (track4)
+
+
+Java features:
+String api
+Collections methods
+Interface private methods vs static methods
+Optional(OptionalReturn), not as a field nor argument (Not serializable) map and ifpresent differences
+    ifpresentOrElse
+    orElseGet
+    or -> default value
+    flatMap(Optional::stream)
+
+Streams
+    takeWhile/dropWhile -> [dont]take values until -> can be not ordered, consider parallel computations
+    __ :c
+
+--Stackwalker
+
+var
+--Unsafe apocalypse
+
+Refactoring
+-Dto are allowed to depend in the domain, not the way around, you can use a converter too!
+-Method references when refactoring loops with streams, try to use the method references instead of negating methods
+-Dont stream again after collecting, streams can only be tranversed once
+-Checked exceptions when refactoring to streams -> Unchecked.consumer -> jool, vavr (@SneakyThrows)
+-Method reference in enum construction, passing then the instance of the service.
+
+
+Optionals
+-Return Optional in Entities
+-flatMapping Optionals
+
+
+
+Streams 
+-Spring data allows you to return streams
+
+Design patterns
+-Template method -> passing the missing function  
+
+Clean code
+-No block lambdas -> extract them to one liners 
+-No nullable parameters, No optionals parameters -> map optionals in case not empty
+-Don't return null, throw exception. Even in getters, return optionals.
+-Prefer runtime exceptions to chekced exceptions -> functional interfaces dont return anything 
+-Switchs -> the only instruction in a method, everycase returns directly
+
+
+
+Emojis :)
+
+Effective Java items 
+21 -> Desing interfaces for posterity
+55 -> return optionals judiciously
+44 -> Favor the use of standard functiopnal interfaces
+43 -> prefer method references to lambads 
+46 -> avoid side-effects functions in streams
+47 -> avoid returning streams
